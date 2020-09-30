@@ -8,13 +8,10 @@ const connection = mysql.createConnection({
   password: config.PASSWORD,
 });
 
-
 connection.connect((err) => {
   if (err) throw err;
   console.log("Connected sucessfully!");
 });
-
-
 
 const runQuery1 = (query) => {
   return new Promise((resolve, reject) => {
@@ -45,7 +42,6 @@ const createDatabasesTable = () => {
 }
 module.exports = createDatabasesTable;
 
-
 // eslint-disable-next-line no-unused-vars
 const executeQueryPromise = (query) => {
   return new Promise((resolve, reject) => {
@@ -62,5 +58,6 @@ const executeQueryPromise = (query) => {
 module.exports = {
   connection,
   executeQueryPromise,
-  createDatabasesTable
+  createDatabasesTable,
+  runQuery1,
 }

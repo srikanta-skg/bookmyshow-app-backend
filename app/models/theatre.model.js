@@ -13,7 +13,7 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
     city_Id: {
-      type: Sequelize.BOOLEAN
+      type: Sequelize.STRING
     },
   }, {
     // disable the modification of table names; By default, sequelize will automatically

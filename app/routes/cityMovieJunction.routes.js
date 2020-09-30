@@ -14,7 +14,7 @@ module.exports = app => {
     cityMovieJunctionrouter.get("/all", async (req, res) => {
         try {
             const useDatabase = `USE bmssubmit;`;
-            const ans = await runQuery1(useDatabase)
+            // const ans = await runQuery1(useDatabase)
      const result = await executeQueryPromise(`select * from movies join cityMovieJunction on movies.id = cityMovieJunction.movieID join city on city.city_ID = cityMovieJunction.City_ID;
 `);
             if (result.length === 0) {

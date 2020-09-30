@@ -1,9 +1,9 @@
 const db = require("../models");
 // console.log(db)
-const Tutorial = db.tutorials;
+const event = db.events;
 const Op = db.Sequelize.Op;
 
-// Create and Save a new Tutorial
+// Create and Save a new event
 exports.create = (req, res) => {
     // Validate request
     if (!req.body.title) {
@@ -13,24 +13,24 @@ exports.create = (req, res) => {
         return;
     }
 
-    const tutorial = {
+    const eventinfo = {
         title: req.body.title,
         description: req.body.description,
         published: req.body.published ? req.body.published : false
     };
 
-    Tutorial.create(tutorial)
+    event.create(eventinfo)
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while creating the Tutorial."
+                message: err.message || "Some error occurred while creating the event."
             });
         });
 }
 
-// Retrieve all Tutorials from the database.
+// Retrieve all event from the database.
 exports.findAll = (req, res) => {
     const title = req.query.title;
     var condition = title ? {
@@ -38,7 +38,7 @@ exports.findAll = (req, res) => {
             [Op.like]: `%${title}%`
         }
     } : null;
-    Tutorial.findAll({
+    event.findAll({
             where: condition
         })
         .then(data => {
@@ -47,31 +47,31 @@ exports.findAll = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while retrieving tutorials."
+                message: err.message || "Some error occurred while retrieving event."
             });
         });
 }
 
-// Find a single Tutorial with an id
+// Find a single event with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
 
-    Tutorial.findByPk(id)
+    event.findByPk(id)
         .then(data => {
             res.send(data);
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error retrieving Tutorial with id=" + id
+                message: "Error retrieving event with id=" + id
             });
         });
 };
 
-// Update a Tutorial by the id in the request
+// Update a event by the id in the request
 exports.update = (req, res) => {
     const id = req.params.id;
 
-    Tutorial.update(req.body, {
+    event.update(req.body, {
             where: {
                 id: id
             }
@@ -79,26 +79,26 @@ exports.update = (req, res) => {
         .then(num => {
             if (num == 1) {
                 res.send({
-                    message: "Tutorial was updated successfully."
+                    message: "event was updated successfully."
                 });
             } else {
                 res.send({
-                    message: `Cannot update Tutorial with id=${id}. Maybe Tutorial was not found or req.body is empty!`
+                    message: `Cannot update event with id=${id}. Maybe event was not found or req.body is empty!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Error updating Tutorial with id=" + id
+                message: "Error updating event with id=" + id
             });
         });
 };
 
-// Delete a Tutorial with the specified id in the request
+// Delete a event with the specified id in the request
 exports.delete = (req, res) => {
     const id = req.params.id;
 
-    Tutorial.destroy({
+    event.destroy({
             where: {
                 id: id
             }
@@ -106,43 +106,43 @@ exports.delete = (req, res) => {
         .then(num => {
             if (num == 1) {
                 res.send({
-                    message: "Tutorial was deleted successfully!"
+                    message: "event was deleted successfully!"
                 });
             } else {
                 res.send({
-                    message: `Cannot delete Tutorial with id=${id}. Maybe Tutorial was not found!`
+                    message: `Cannot delete event with id=${id}. Maybe event was not found!`
                 });
             }
         })
         .catch(err => {
             res.status(500).send({
-                message: "Could not delete Tutorial with id=" + id
+                message: "Could not delete event with id=" + id
             });
         });
 };
 
-// Delete all Tutorials from the database.
+// Delete all event from the database.
 exports.deleteAll = (req, res) => {
-    Tutorial.destroy({
+    event.destroy({
             where: {},
             truncate: false
         })
         .then(nums => {
             res.send({
-                message: `${nums} Tutorials were deleted successfully!`
+                message: `${nums} event were deleted successfully!`
             });
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while removing all tutorials."
+                message: err.message || "Some error occurred while removing all event."
             });
         });
 };
 
-// Find all published Tutorials
+// Find all published event
 exports.findAllPublished = (req, res) => {
 
-    Tutorial.findAll({
+    event.findAll({
             where: {
                 published: true
             }
@@ -152,7 +152,7 @@ exports.findAllPublished = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occurred while retrieving tutorials."
+                message: err.message || "Some error occurred while retrieving event."
             });
         });
 

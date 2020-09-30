@@ -6,10 +6,6 @@ module.exports = app => {
 
     // Create a new booking
 
-    
-
-
-
     bookingrouter.post("/", booking.create);
 
     // Retrieve all booking

@@ -21,7 +21,7 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 
-db.tutorials = require("./events.model.js")(sequelize, Sequelize)
+db.events = require("./events.model.js")(sequelize, Sequelize)
 db.extras = require("./extra.model.js")(sequelize, Sequelize)
 
 db.citys = require("./city.model.js")(sequelize, Sequelize)

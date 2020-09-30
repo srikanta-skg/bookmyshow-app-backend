@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const Tutorial = sequelize.define("tutorial", {
+  const event = sequelize.define("event", {
     id: {
       type: Sequelize.INTEGER,
       allowNull: false,
@@ -27,7 +27,7 @@ module.exports = (sequelize, Sequelize) => {
   //   })
   // }
 
-  return Tutorial;
+  return event;
 };
 
 

@@ -58,6 +58,7 @@ require("./app/routes/city.routes")(app, {});
 require("./app/routes/movie.routes")(app, {});
 require("./app/routes/booking.routes")(app, {});
 require("./app/routes/theater.routes")(app, {});
+require("./app/routes/cityMovieJunction.routes")(app, {});
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8000;

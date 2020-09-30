@@ -5,6 +5,11 @@ module.exports = app => {
     var bookingrouter = require("express").Router();
 
     // Create a new booking
+
+    
+
+
+
     bookingrouter.post("/", booking.create);
 
     // Retrieve all booking

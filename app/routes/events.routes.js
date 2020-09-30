@@ -1,32 +1,29 @@
 module.exports = async app => {
     
-
-    const tutorials = require("../controller/events.controller");
-
-    
+    const event = require("../controller/events.controller");
 
     var router = require("express").Router();
 
-    // Create a new Tutorials
-    router.post("/", tutorials.create);
+    // Create a new event
+    router.post("/", event.create);
 
-    // Retrieve all Tutorials
-    router.get("/", tutorials.findAll);
+    // Retrieve all event
+    router.get("/", event.findAll);
 
-    // Retrieve all published Tutorials
-    router.get("/published", tutorials.findAllPublished);
+    // Retrieve all published event
+    router.get("/published", event.findAllPublished);
 
-    // Retrieve a single Tutorial with id
-    router.get("/:id", tutorials.findOne);
+    // Retrieve a single event with id
+    router.get("/:id", event.findOne);
 
-    // Update a Tutorial with id
-    router.put("/:id", tutorials.update);
+    // Update a event with id
+    router.put("/:id", event.update);
 
-    // Delete a Tutorial with id
-    router.delete("/:id", tutorials.delete);
+    // Delete a event with id
+    router.delete("/:id", event.delete);
 
-    // Delete all Tutorials
-    router.delete("/", tutorials.deleteAll);
+    // Delete all event
+    router.delete("/", event.deleteAll);
 
     //create extra data
     // router.post("/extra", extra.create);

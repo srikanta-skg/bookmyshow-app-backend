@@ -39,12 +39,10 @@ exports.create = (req, res) => {
 
 // Retrieve all movie from the database.
 exports.findAll = (req, res) => {
-    const id = req.query.id;
-    var condition = id ? {
-        id: {
-            [Op.like]: `%${id}%`
-        }
-    } : null;
+    const Title = req.query.Title;
+    const t =  movie["Title"]
+    var condition = movie["Title"] ? { t: { [Op.like]: `%${Title}%` } } :
+
     movie.findAll({
             where: condition
         })
@@ -62,7 +60,6 @@ exports.findAll = (req, res) => {
 // Find a single movie with an id
 exports.findOne = (req, res) => {
     const id = req.params.id;
-
     movie.findByPk(id)
         .then(data => {
             res.send(data);

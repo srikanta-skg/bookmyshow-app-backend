@@ -7,7 +7,8 @@ module.exports = (sequelize, Sequelize) => {
             autoIncrement: true,
         },
         userID: {
-            type: Sequelize.STRING
+            type: Sequelize.STRING,
+
         },
         theaterID: {
             type: Sequelize.STRING

@@ -8,7 +8,7 @@ module.exports = (sequelize, Sequelize) => {
         },
         Title: {
             type: Sequelize.STRING,
-            allowNull: false
+            allowNull: false,
         },
         Director: {
             type: Sequelize.STRING,

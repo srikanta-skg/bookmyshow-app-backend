@@ -8,11 +8,11 @@ module.exports = (sequelize, Sequelize) => {
     },
     user_name: {
       type: Sequelize.STRING,
-      // allowNull: false,
+      allowNull: false,
     },
     password: {
       type: Sequelize.STRING,
-      // allowNull: false,
+      allowNull: false,
     },
   }, {
     // disable the modification of table names; By default, sequelize will automatically

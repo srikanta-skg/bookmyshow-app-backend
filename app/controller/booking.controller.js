@@ -5,7 +5,7 @@ const Op = db.Sequelize.Op;
 // Create and Save a new booking
 exports.create = (req, res) => {
     // Validate request
-    if (!req.body.bookingID) {
+    if (!req.body.userID) {
         res.status(400).send({
             message: "Content can not be empty!"
         });
@@ -35,9 +35,9 @@ exports.create = (req, res) => {
 
 // Retrieve all booking from the database.
 exports.findAll = (req, res) => {
-    const bookingID = req.query.bookingID;
-    var condition = bookingID ? {
-        bookingID: {
+    const id = req.query.id;
+    var condition = id ? {
+        id: {
             [Op.like]: `%${bookingID}%`
         }
     } : null;
@@ -57,9 +57,9 @@ exports.findAll = (req, res) => {
 
 // Find a single booking with an id
 exports.findOne = (req, res) => {
-    const id = req.params.bookingID;
+    const id = req.params.id;
 
-    bookingID.findByPk(id)
+    booking.findByPk(id)
         .then(data => {
             res.send(data);
         })

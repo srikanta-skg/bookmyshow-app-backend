@@ -18,8 +18,8 @@ module.exports = app => {
 
     movierouter.get("/all/:id", async (req, res) => {
         try {
-            // const useDatabase = `USE heroku_067921c158de4d4;`;
-            const useDatabase = `USE bmssubmit;`;
+            const useDatabase = `USE heroku_067921c158de4d4;`;
+            // const useDatabase = `USE bmssubmit;`;
             const ans = await runQuery1(useDatabase)
             const result = await executeQueryPromise(`select * from movies Where movies.Title ="${req.params.id}";
             ;`);

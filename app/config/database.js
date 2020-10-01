@@ -22,8 +22,9 @@ const runQuery1 = (query) => {
   })
 }
 
-const createDatabase = `CREATE DATABASE IF NOT EXISTS bmssubmit;`;
-const useDatabase = `USE bmssubmit;`;
+const createDatabase = `CREATE DATABASE IF NOT EXISTS heroku_067921c158de4d4;`;
+// const useDatabase = `USE bmssubmit;`;
+const useDatabase = `USE heroku_067921c158de4d4;`;
 //   const createMatchTable=`CREATE TABLE MATCH_TABLE1( id INT NOT NULL,PRIMARY KEY (id));`;
 
 const createDatabasesTable = () => {

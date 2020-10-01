@@ -42,8 +42,8 @@ module.exports = app => {
     
     bookingrouter.get("/all/:id", async (req, res) => {
         try {
-            // const useDatabase = `USE heroku_067921c158de4d4;`;
-            const useDatabase = `USE bmssubmit;`;
+            const useDatabase = `USE heroku_067921c158de4d4;`;
+            // const useDatabase = `USE bmssubmit;`;
             const ans = await runQuery1(useDatabase)
             const result = await executeQueryPromise(` select * from booking JOIN theatre ON booking.theaterID
              = theatre.theatre_id JOIN movies on  booking.theaterID = movies.id WHERE userID = "${req.params.id}";
